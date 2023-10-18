@@ -1,0 +1,113 @@
+<!--
+        auteur :  Yannis-Arthur
+        date : 2023
+       
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Click Bouton</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+        body {
+            background-color: #F2F2F2;
+        }
+
+        #main {
+            background-color: beige;
+            height: 900px;
+            border-radius: 5px;
+            border-left: #0069D9 5px solid;
+            border-bottom: #0069D9 5px solid;
+            border-right:  #218838 5px solid;
+            border-top: #218838 5px solid;
+        }
+
+        #btnClick {
+            margin: 50px;
+        }
+
+        p {
+            margin: 50px 0;
+            font-size: 1.5em;
+        }
+
+        h1 {
+            margin-top: 1cm;
+        }
+    </style>
+    
+    <script>
+        const nbClickMax = 20;
+        let nombreClick = 0;
+        let dateDebut;
+
+        function cliqueMoi()
+        {
+            if(nombreClick == 0)
+            {
+                dateDebut = new Date();
+            }
+            
+            nombreClick++;
+
+            document.querySelector("#infoClick").innerHTML = nombreClick;
+
+            
+            //affichage dans la balise span
+            if(nombreClick == nbClickMax)
+            {
+                let dateFin = new Date();
+                let tempDebut = dateDebut.getTime();
+                let tempFin = dateFin.getTime();
+
+                document.querySelector("#btnClick").disabled = true;
+
+                document.querySelector("#message").innerHTML = `Tu as cliqué ${nombreClick} fois en ${tempFin - tempDebut} millisecondes`;
+            }
+          
+        }
+
+        function reinitialiser()
+        {
+            //location.reload();  // rafraichi la page courante
+            nombreClick = 0;
+            document.querySelector("#infoClick").innerHTML = 0;
+            document.querySelector("#btnClick").disabled = false;
+            document.querySelector("#message").innerHTML = "";
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div id="main" class="col-10">
+
+                <form name="frmClique">
+                    <div class="text-center">
+                        <h1>Le clique rapide!!</h1>
+                        <p>Tu dois cliquer 20 fois le plus rapidement possible
+                        </p>
+                        <input type="button" class="btn btn-primary btn-lg" value="Clique Moi!" id="btnClick"
+                            name="btnClick" onclick="cliqueMoi()" />
+                        <br />
+                        <input type="button" value="Rejouer" class="btn btn-success btn-lg" id="btnRejouer"
+                            name="btnRejouer" onclick="reinitialiser()" />
+                        <p># de cliques : <span id="infoClick">0</span></p>
+                        <h3 id="message"></h3>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+
+</html>
