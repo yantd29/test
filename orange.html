@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange</title>
+    <style>
+        .fueille 
+        {
+            position: relative;
+            background-color: green;
+            height: 20px;
+            width: 50px;
+            margin-bottom: 110px;
+            margin-left: 20px;
+            z-index: 10;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            transform: rotate(-15deg) translateZ(50px);
+            box-shadow: inset 2px 8px 5px rgb(0, 78, 0);
+        }
+
+        .form {
+            position: absolute;
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            text-align: center;
+            transform: translateZ(50px);
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fueille">
+
+        </div>
+
+        <div class="form">
+            
+        </div>
+    </div>
+    
+</body>
+</html>
